@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stanes Challan Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<body>
+<div class="bgpic">
+<span class="border">DELIVERY CHALLAN</span>
+<span class="st">
+<form action="" id="newChallan">
+<div>
+	<label><b>Date of issue(Figures):</b></label>&nbsp;
+	<input class="textbox" type="date" name="doif" id="di1" size="32" placeholder="Enter Date of Issue in figure" required><br>
+	<label><b>Date of issue(Words):</b></label>&nbsp;
+	<input class="textbox" type="text" name="doiw" id="di2" size="35" required><br>
+    <label><b>Time of commencement</b></label>&nbsp;
+    <input class="textbox" type="time" id="tc" name="ctime" placeholder="hrs">
+    <label><b>hrs/mins</b></label><br>    
+    <label><b>Place from which goods are consigned:</b></label>&nbsp;
+    <input  class="textbox" type="text" id="pl" name="oplace"><br>
+    <label><b>Description,Quantity and Value:</b></label><br>
+    <table border="3">
+    <th>sl no</th>
+    <th>Item commodity</th>
+    <th>Invoice number</th>
+    <th>Quantity</th>
+    <th>Value of goods(figures)</th>
+    <th>Value of goods(words)</th>
+    <tr>
+    <td>1.</td>
+    <td><input class="textbox" type="text" id="ic" name="ic" size="10"></td>
+    <td><input class="textbox" type="text" id="inn" name="invo" size="5" ></td>  
+    <td><input class="textbox" type="text" id="q" name="ic" size="8"></td>   
+    <td><input class="textbox" type="text" id="vocf" name="ic"></td>    
+    <td><input  class="textbox" type="text" id="vocw" name="ic"></td>
+    </tr>
+    <tr>
+    <td>2.</td>
+    <td><input class="textbox" type="text" id="ic1" name="ic" size="10"></td>
+    <td><input class="textbox" type="text" id="inn1" name="invo" size="5" ></td>  
+    <td><input class="textbox" type="text" id="q1" name="ic" size="8"></td>   
+    <td><input class="textbox" type="text" id="vocf1" name="ic"></td>    
+    <td><input  class="textbox" type="text" id="vocw1" name="ic"></td>
+    </tr>
+    <tr>
+    <td>3.</td>
+    <td><input class="textbox" type="text" id="ic2" name="ic" size="10"></td>
+    <td><input class="textbox" type="text" id="inn2" name="invo" size="5" ></td>  
+    <td><input class="textbox" type="text" id="q2" name="ic" size="8"></td>   
+    <td><input class="textbox" type="text" id="vocf2" name="ic"></td>    
+    <td><input  class="textbox" type="text" id="vocw2" name="ic"></td>
+    </tr>
+</table>
+        <label><b>Name, Address of the owner of the vehicle by which goods are cosigned</b></label
+    <br><br>
+    <label><b>Name & Address</b></label>
+    <input  class="textbox" type="text" id="na" name="nnda">
+    <label><b>Vehicle Number</b></label>
+    <input  class="textbox" type="text" id="vnu" name="vn">
+    <br><br>
+    <input type="submit" id="submit" align="center" value="Submit" onclick="submitdata();window.open('result.html');">
+    &nbsp;
+    <input type="button" name="reset" onclick="window.location.reload()" value="Reset">
+    </div>
+</form>
+</span>
+</div>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDfMgBHXpGNdBmLjF-0wIDmxiD189HSmUA",
+    authDomain: "tstanes-905a0.firebaseapp.com",
+    databaseURL: "https://tstanes-905a0.firebaseio.com",
+    projectId: "tstanes-905a0",
+    storageBucket: "tstanes-905a0.appspot.com",
+    messagingSenderId: "844284728080"
+  };
+  firebase.initializeApp(config);
+  var data=[];
+var rootRef=firebase.database().ref();
+    	function submitdata() {    	  
+  console.log("Submit to Firebase");
+  var doif= document.getElementById("di1").value;
+  var doiw=document.getElementById("di2").value;
+  var tc=document.getElementById("tc").value;
+  var place=document.getElementById("pl").value;
+  var commodity= document.getElementById("ic").value;
+  var invoice= document.getElementById("inn").value;
+  var quantity= document.getElementById("q").value;
+  var valuef= document.getElementById("vocf").value;
+  var valuew= document.getElementById("vocw").value;
+  var commodity1= document.getElementById("ic1").value;
+  var invoice1= document.getElementById("inn1").value;
+  var quantity1= document.getElementById("q1").value;
+  var valuef1= document.getElementById("vocf1").value;
+  var valuew1= document.getElementById("vocw1").value;
+  var commodity2= document.getElementById("ic2").value;
+  var invoice2= document.getElementById("inn2").value;
+  var quantity2= document.getElementById("q2").value;
+  var valuef2= document.getElementById("vocf2").value;
+  var valuew2= document.getElementById("vocw2").value;
+  var namead= document.getElementById("na").value;
+  var vehicle= document.getElementById("vnu").value;
+  var newActivity={"doif" : doif,"doiw": doiw,"tc": tc,"place": place,"commodity": commodity,"invoice": invoice,
+  "quantity": quantity,"valuef": valuef,"valuew": valuew,"commodity1": commodity1,"invoice1": invoice1,"quantity1": quantity1,
+  "valuef1": valuef1,"valuew1": valuew1,"commodity2": commodity2,"invoice2": invoice2,"quantity2": quantity2,
+  "valuef2": valuef2,"valuew2": valuew2,"namead": namead,"vehicle": vehicle};
+  event.preventDefault();
+  data.push(newActivity);
+  console.log(data);
+  rootRef.set(data, function(err){
+      if(err){
+        alert("Data no go");
+      }
+      else
+      {
+        alert("Data SUBMITTED,PLEASE REFRESH THE PAGE")
+      }
+    });
+  return false;
+}
+</script>
+</body>
+
+</html
+
+
+

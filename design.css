@@ -1,0 +1,117 @@
+
+.rbgpic{
+  background-image: url(http://www.homedepot.com/catalog/productImages/600/e4/e4029394-f7e3-46bc-a319-e2c5d5e8e22d_600.jpg);
+  background-attachment: fixed;
+    background-position: center;
+    min-height: 1000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.rhead
+{
+  font-size: 25px;
+  display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  text-align: center;
+}
+.bgpic{
+		background-image: url(https://vignette1.wikia.nocookie.net/animal-jam-clans-1/images/2/26/Farm_land.jpg/revision/latest?cb=20161114003424);
+		background-attachment: fixed;
+    background-position: center;
+    min-height: 1000px;
+    background-repeat: no-repeat;
+    background-size: cover;
+	}
+	div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.border {
+	position: absolute;
+  left: 35%;
+  top: 10%;
+  width: auto;
+  background-color: #111;
+  text-align: center;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+ }
+.st{
+	position: absolute;
+	top: 40%;
+	width: 88%;
+	left: 0%;
+	background-color: #7FFFD4;
+	text-align: center;
+	font-size: 120%;
+	font-family: mainheading;
+	padding:50px 80px;
+}
+.textbox { 
+    height: 25px; 
+    width: auto; 
+    background-color: transparent;  
+    border-style: solid;  
+    border-width: 0px 0px 1px 0px;  
+    border-color: darkred; 
+    outline:0; 
+  } 
+input[type=text]
+{
+	font-family: mainheading;
+	font-size: 24px;
+}
+input[type=number]
+{
+	font-family: mainheading;
+	font-size: 24px;
+}
+@font-face{
+	font-family: mainheading;
+	src: url(fonts/k.otf);
+}
+@font-face{
+  font-family: resulttext;
+  src:url(fonts/r.otf);
+}
+.rbody{
+  font-size: 15px
+  top: 40%;
+  width: 88%;
+  left: 0%;
+  background-color: #7FFFD4;
+  text-align: center;
+  font-size: 120%;
+  font-family: mainheading;
+  }
+.cbutton {
+    background-color: #555555; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.basel{
+  margin-right: 50px;
+}
+.baser{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+}

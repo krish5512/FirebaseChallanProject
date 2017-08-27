@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DELIVERY CHALLAN</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<div class="rbgpic">
+<body>
+<form id="ch">
+<div align="center">
+<span class="rhead">
+<label>ETTUMANOOR-686631-KOTTAYAM DISTRICT-0481 2535555</label><br>
+	<label>etrfact@t-stanes.com</label><br>
+    <label>DELIVERY CHALLAN</label><br></span><br>
+    <br>
+<span class="rbody">
+	
+<label>Date of issue(Figures):</label>&nbsp;
+<input type="date" id="di" size="35"><br>
+<label>Date of issue  (Words):</label>&nbsp;
+<input type="text" name="dow" id="dw" size="50" ><br>
+<label>Time of commencement</label>&nbsp;
+<input type="text" name="tcc" id="timec" ><br>
+<label>Name & Address of the consignor : T. STANES & CO. LTD,ETTUMANOOR"<br>				
+	             GST NO; 32AAACT7126P1Z4		<br>	
+       "Name & Address consignee:  T. STANES & CO. LTD, "	</label><br>
+<label>Place from which goods  are consigned:</label>
+<input type="text" name="poc" id="pla" ><br>
+<label>Place to which goods are consigned:ETTUMANOOR</label><br>
+<label>Purpose of Transporting Goods: STOCK TRANSFER TO OUR STOCK POINT</label><br>
+<label>"Description, Quantity and value"</label><br>
+<table border="3"> 
+	<th>sl no</th>
+	<th>Item commodity</th>
+<th>Invoice number</th>
+<th>Quantity</th>
+<th>Value of goods<br>(figures)</th>
+<th>Value of goods<br>(words)</th>
+	<tr>
+	<td>1.</td>
+	<td><input type="text" id="d2" size="20"></td>
+	<td><input type="text" id="d1" size="5" ></td>	
+	<td><input type="text" id="d3" size="5"></td>	
+	<td><input type="text" id="d4" size="5"></td>	
+	<td><input type="text" id="d5" size="25"></td>
+	</tr>
+	<tr>
+	<td>2.</td>
+	<td><input type="text" id="d21" size="20"></td>
+	<td><input type="text" id="d11" size="5" ></td>	
+	<td><input type="text" id="d31" size="5"></td>	
+	<td><input type="text" id="d41" size="5"></td>	
+	<td><input type="text" id="d51" size="25"></td>
+	</tr>
+	<tr>
+	<td>3.</td>
+	<td><input type="text" id="d22" size="20"></td>
+	<td><input type="text" id="d12" size="5" ></td>	
+	<td><input type="text" id="d32" size="5"></td>	
+	<td><input type="text" id="d42" size="5"></td>	
+	<td><input type="text" id="d52" size="25"></td>
+	</tr>
+</table>
+
+<label>"Name, Address of the owner of the vehicle by which goods are cosigned"	</label><br>
+<label>Name & Address:</label>
+<input type="text" name="poc" id="nd" ><br>
+<label>Vehicle Number:</label>
+<input type="text" name="poc" id="vnum" ><br>
+<label>I/We certify that to the best of my/our knowledge the particulars furnished herein are</label><br>				
+<label>"true, correct, complete and that nothing has been concealed therein"</label><br><br><br><br>
+<label>Name, Address, Signature & Driving</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<label class="basel">Name and dated signature of the</label><br>
+<label>Licence of the driver of the vehicle</label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<label>Consignor or his authorised signature</label>
+</div</form>
+<br><br><br><input type="button" value="Print this page" onclick="window.print()">
+</span>
+<script>
+   // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDfMgBHXpGNdBmLjF-0wIDmxiD189HSmUA",
+    authDomain: "tstanes-905a0.firebaseapp.com",
+    databaseURL: "https://tstanes-905a0.firebaseio.com",
+    projectId: "tstanes-905a0",
+    storageBucket: "tstanes-905a0.appspot.com",
+    messagingSenderId: "844284728080"
+};
+  firebase.initializeApp(config);
+    var rootRef=firebase.database().ref();
+  rootRef.on('value', gotUserData);
+   function gotUserData(snapshot) {
+   snapshot.forEach(userSnapshot => {
+   var k = userSnapshot.key;
+   var di = userSnapshot.val().doif;
+   var dw= userSnapshot.val().doiw;
+   var timec=userSnapshot.val().tc;
+   var pla=userSnapshot.val().place;
+var nd=userSnapshot.val().namead;
+var vnum= userSnapshot.val().vehicle;
+var d2=userSnapshot.val().commodity;
+var d1=userSnapshot.val().invoice;
+var d3=userSnapshot.val().quantity;
+var d4=userSnapshot.val().valuef;
+var d5=userSnapshot.val().valuew;
+var d21=userSnapshot.val().commodity1;
+var d11=userSnapshot.val().invoice1;
+var d31=userSnapshot.val().quantity1;
+var d41=userSnapshot.val().valuef1;
+var d51=userSnapshot.val().valuew1;
+var d22=userSnapshot.val().commodity2;
+var d12=userSnapshot.val().invoice2;
+var d32=userSnapshot.val().quantity2;
+var d42=userSnapshot.val().valuef2;
+var d52=userSnapshot.val().valuew2;
+document.getElementById("di").value = di;
+document.getElementById("dw").value = dw;
+document.getElementById("timec").value=timec;
+document.getElementById("pla").value = pla;
+document.getElementById("nd").value = nd;
+document.getElementById("vnum").value = vnum;
+document.getElementById("d1").value = d1;
+document.getElementById("d2").value = d2;
+document.getElementById("d3").value = d3;
+document.getElementById("d4").value = d4;
+document.getElementById("d5").value = d5;
+document.getElementById("d11").value = d11;
+document.getElementById("d21").value = d21;
+document.getElementById("d31").value = d31;
+document.getElementById("d41").value = d41;
+document.getElementById("d51").value = d51;
+document.getElementById("d12").value = d12;
+document.getElementById("d22").value = d22;
+document.getElementById("d32").value = d32;
+document.getElementById("d42").value = d42;
+document.getElementById("d52").value = d52;
+            console.log(di,dw,timec,pla,nd,vnum);
+        });
+}
+</script>
+</body>
+</html>
